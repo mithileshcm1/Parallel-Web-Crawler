@@ -19,20 +19,24 @@ It demonstrates:
   - Fetch pages
   - Extract links
   - Enqueue pages for analysis
-- Uses **analysis worker threads** to compute metrics:
-  - Word count
-  - Number of images (`<img>`)
-  - Number of links (`<a>`)
-  - Count of `<h1>` and `<h2>` tags
+- Uses **analysis worker threads** to compute comprehensive metrics:
+  - **Basic counts**: word_count, images, links, h1_tags, h2_tags
+  - **Content quality**: thin_content flag, title_length, meta_desc_length
+  - **SEO health**: has_h1, multiple_h1, title validation, seo_score (0-100)
+  - **Media analysis**: videos, audio elements
+  - **Performance**: response_time per page
+  - **Overall**: health_score (composite 0-100)
 - Uses a dedicated **broken-link reporter thread** to:
   - Continuously write broken links to `broken_links.txt`
   - While crawling is still running
 - Tracks **link frequency** (how many times each URL is linked)
+- Generates **comprehensive summary report** with insights and recommendations
 - Saves results to:
   - `crawl_results.txt` – basic info per crawled page
   - `link_frequency.txt` – most-linked URLs
-  - `analysis_results.csv` – per-page metrics
+  - `analysis_results.csv` – detailed per-page metrics (22+ columns)
   - `broken_links.txt` – broken URLs + status
+  - `summary_report.txt` – automated analysis and recommendations
 
 ## Project Structure
 
@@ -100,10 +104,13 @@ effect of parallelism.
 
 - `analysis_results.csv`
 
-  Columns:
+  Columns (22+ fields):
 
   ```
-  url, depth, title, word_count, images, links, h1_tags, h2_tags, status_code, error
+  url, depth, title, word_count, images, links, h1_tags, h2_tags, status_code,
+  thin_content, title_length, meta_desc_length, has_h1, multiple_h1, 
+  title_too_short, title_too_long, missing_meta_desc, seo_score, 
+  videos, audio, response_time, health_score, error
   ```
 
 - `broken_links.txt`
@@ -113,6 +120,16 @@ effect of parallelism.
   http://books.toscrape.com/badpage	404	Not Found
   http://books.toscrape.com/oldpage	None	ERROR: ...
   ```
+
+- `summary_report.txt`
+
+  Comprehensive analysis report including:
+  - Content quality analysis (thin pages, missing meta descriptions)
+  - SEO health analysis (H1 tags, title validation, SEO scores)
+  - Media analysis (images, videos, audio usage)
+  - Performance analysis (response times, slow pages)
+  - Overall website health score
+  - Automated recommendations for improvement
 
 ## Parallel Programming Concepts
 
@@ -162,11 +179,39 @@ effect of parallelism.
    - Show where speedup is good and where it flattens.
    - Discuss overhead of too many threads.
 
-6. **Applications**
-   - SEO analysis (most-linked pages, heading usage).
-   - Broken link detection.
-   - Content analysis.
+6. **Advanced Analysis Insights**
+   
+   a. **Content Quality Analysis**
+   - Identify thin pages (word_count < 100)
+   - Pages with too short/long titles
+   - Missing H1 tags or meta descriptions
+   - Example conclusion: "40% of pages have less than 100 words — thin content, bad for SEO."
+   
+   b. **SEO Health Analysis**
+   - Pages with no H1 tag or multiple H1 tags (bad SEO)
+   - Title length validation
+   - SEO score distribution (0-100)
+   - Example conclusion: "The average SEO score is 62/100 — fair but needs improvement."
+   
+   c. **Media Analysis**
+   - Count media usage per page (images, videos, audio)
+   - Correlate media-heavy pages with load times
+   - Example conclusion: "Media-heavy pages load 2× slower."
+   
+   d. **Website Health Score (Composite)**
+   - Combines: response_time, seo_score, broken links, content quality
+   - Overall site health score (0-100)
+   - Example conclusion: "Overall site health score: 71/100 — good but with improvement areas."
 
-7. **Conclusion & Future Work**
+7. **Applications**
+   - SEO analysis (most-linked pages, heading usage, content quality).
+   - Broken link detection.
+   - Content quality auditing.
+   - Performance monitoring.
+   - Website health assessment.
+
+8. **Conclusion & Future Work**
    - Add robots.txt support, politeness rules (crawl delay).
    - Add distributed crawling using multiple machines.
+   - Implement machine learning for content quality prediction.
+   - Add more detailed accessibility analysis.

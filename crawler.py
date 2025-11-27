@@ -187,24 +187,153 @@ class ParallelWebCrawler:
     # ------------------------------------------------------------
 
     def _analyze_page(self, page_info):
+        """Compute comprehensive metrics including SEO and content quality."""
         if not page_info.html:
             return {"url": page_info.url, "error": True}
 
         soup = BeautifulSoup(page_info.html, "html.parser")
         text = soup.get_text(" ", strip=True)
         words = text.split()
+        word_count = len(words)
+        
+        # Basic counts
+        num_images = len(soup.find_all("img"))
+        num_links = len(soup.find_all("a"))
+        h1_count = len(soup.find_all("h1"))
+        h2_count = len(soup.find_all("h2"))
+        
+        # Media analysis
+        num_videos = len(soup.find_all("video"))
+        num_audio = len(soup.find_all("audio"))
+        
+        # Content quality metrics
+        thin_content = word_count < 100
+        title_length = len(page_info.title or "")
+        
+        # Meta description
+        meta_desc = soup.find("meta", attrs={"name": "description"})
+        meta_desc_length = len(meta_desc.get("content", "")) if meta_desc else 0
+        
+        # SEO metrics
+        has_h1 = h1_count > 0
+        multiple_h1 = h1_count > 1
+        title_too_short = title_length < 30
+        title_too_long = title_length > 60
+        missing_meta_desc = meta_desc_length == 0
+        
+        # Calculate SEO score (0-100)
+        seo_score = self._calculate_seo_score(
+            has_h1=has_h1,
+            multiple_h1=multiple_h1,
+            title_length=title_length,
+            meta_desc_length=meta_desc_length,
+            word_count=word_count,
+            h2_count=h2_count
+        )
+        
+        # Response time from page_info
+        response_time = page_info.elapsed if page_info.elapsed else 0
+        
+        # Website health score (composite)
+        health_score = self._calculate_health_score(
+            seo_score=seo_score,
+            response_time=response_time,
+            thin_content=thin_content,
+            status_code=page_info.status_code
+        )
 
         return {
             "url": page_info.url,
             "depth": page_info.depth,
             "title": page_info.title,
-            "word_count": len(words),
-            "images": len(soup.find_all("img")),
-            "links": len(soup.find_all("a")),
-            "h1_tags": len(soup.find_all("h1")),
-            "h2_tags": len(soup.find_all("h2")),
+            "word_count": word_count,
+            "images": num_images,
+            "links": num_links,
+            "h1_tags": h1_count,
+            "h2_tags": h2_count,
             "status_code": page_info.status_code,
+            # Content quality
+            "thin_content": thin_content,
+            "title_length": title_length,
+            "meta_desc_length": meta_desc_length,
+            # SEO health
+            "has_h1": has_h1,
+            "multiple_h1": multiple_h1,
+            "title_too_short": title_too_short,
+            "title_too_long": title_too_long,
+            "missing_meta_desc": missing_meta_desc,
+            "seo_score": seo_score,
+            # Media
+            "videos": num_videos,
+            "audio": num_audio,
+            # Performance
+            "response_time": response_time,
+            # Overall
+            "health_score": health_score,
         }
+
+    # ------------------------------------------------------------
+    
+    def _calculate_seo_score(self, has_h1, multiple_h1, title_length, meta_desc_length, word_count, h2_count):
+        """Calculate SEO score (0-100) based on best practices."""
+        score = 100
+        
+        # H1 tag checks
+        if not has_h1:
+            score -= 20
+        if multiple_h1:
+            score -= 10
+            
+        # Title checks
+        if title_length < 30:
+            score -= 15
+        elif title_length > 60:
+            score -= 10
+            
+        # Meta description
+        if meta_desc_length == 0:
+            score -= 15
+        elif meta_desc_length < 50 or meta_desc_length > 160:
+            score -= 5
+            
+        # Content quality
+        if word_count < 100:
+            score -= 20
+        elif word_count < 300:
+            score -= 10
+            
+        # Heading structure
+        if h2_count == 0 and word_count > 300:
+            score -= 10
+            
+        return max(0, score)
+    
+    def _calculate_health_score(self, seo_score, response_time, thin_content, status_code):
+        """Calculate overall website health score (0-100)."""
+        score = 100
+        
+        # SEO component (40% weight)
+        score = seo_score * 0.4
+        
+        # Performance component (30% weight)
+        perf_score = 100
+        if response_time > 3:
+            perf_score = 40
+        elif response_time > 2:
+            perf_score = 60
+        elif response_time > 1:
+            perf_score = 80
+        score += perf_score * 0.3
+        
+        # Content component (20% weight)
+        content_score = 0 if thin_content else 100
+        score += content_score * 0.2
+        
+        # Availability component (10% weight)
+        avail_score = 100 if status_code == 200 else 0
+        score += avail_score * 0.1
+        
+        return round(score, 1)
 
     # ------------------------------------------------------------
 
@@ -215,13 +344,17 @@ class ParallelWebCrawler:
             for p in self.results:
                 f.write(f"{p.url}\t{p.depth}\t{p.status_code}\t{p.title}\n")
 
-        # analysis
+        # analysis with all new fields
         with open(analysis_path, "w", newline="", encoding="utf-8") as f:
             writer = csv.DictWriter(
                 f,
                 fieldnames=[
                     "url", "depth", "title", "word_count", "images",
-                    "links", "h1_tags", "h2_tags", "status_code", "error"
+                    "links", "h1_tags", "h2_tags", "status_code",
+                    "thin_content", "title_length", "meta_desc_length",
+                    "has_h1", "multiple_h1", "title_too_short", "title_too_long",
+                    "missing_meta_desc", "seo_score", "videos", "audio",
+                    "response_time", "health_score", "error"
                 ]
             )
             writer.writeheader()
@@ -237,5 +370,156 @@ class ParallelWebCrawler:
         with open("broken_links.txt", "w", encoding="utf-8") as f:
             for url, status, title in self.broken_links:
                 f.write(f"{url}\t{status}\t{title}\n")
+        
+        # Generate summary report
+        self._generate_summary_report()
 
         print("[+] All files saved.")
+    
+    def _generate_summary_report(self):
+        """Generate a comprehensive summary report with insights."""
+        if not self.analysis_results:
+            return
+        
+        total_pages = len(self.analysis_results)
+        
+        # Content Quality Analysis
+        thin_pages = sum(1 for r in self.analysis_results if r.get("thin_content", False))
+        missing_meta = sum(1 for r in self.analysis_results if r.get("missing_meta_desc", False))
+        short_titles = sum(1 for r in self.analysis_results if r.get("title_too_short", False))
+        long_titles = sum(1 for r in self.analysis_results if r.get("title_too_long", False))
+        
+        # SEO Health Analysis
+        no_h1 = sum(1 for r in self.analysis_results if not r.get("has_h1", True))
+        multiple_h1s = sum(1 for r in self.analysis_results if r.get("multiple_h1", False))
+        avg_seo_score = sum(r.get("seo_score", 0) for r in self.analysis_results) / total_pages
+        
+        # Media Analysis
+        total_images = sum(r.get("images", 0) for r in self.analysis_results)
+        total_videos = sum(r.get("videos", 0) for r in self.analysis_results)
+        total_audio = sum(r.get("audio", 0) for r in self.analysis_results)
+        avg_images = total_images / total_pages
+        
+        # Performance Analysis
+        response_times = [r.get("response_time", 0) for r in self.analysis_results if r.get("response_time", 0) > 0]
+        avg_response_time = sum(response_times) / len(response_times) if response_times else 0
+        slow_pages = sum(1 for t in response_times if t > 2)
+        
+        # Overall Health
+        avg_health_score = sum(r.get("health_score", 0) for r in self.analysis_results) / total_pages
+        
+        # Write summary report
+        with open("summary_report.txt", "w", encoding="utf-8") as f:
+            f.write("=" * 70 + "\n")
+            f.write("WEBSITE ANALYSIS SUMMARY REPORT\n")
+            f.write("=" * 70 + "\n\n")
+            
+            f.write(f"Total Pages Analyzed: {total_pages}\n")
+            f.write(f"Broken Links Found: {len(self.broken_links)}\n\n")
+            
+            f.write("-" * 70 + "\n")
+            f.write("1. CONTENT QUALITY ANALYSIS\n")
+            f.write("-" * 70 + "\n")
+            f.write(f"Thin Content Pages (< 100 words): {thin_pages} ({thin_pages/total_pages*100:.1f}%)\n")
+            f.write(f"Missing Meta Descriptions: {missing_meta} ({missing_meta/total_pages*100:.1f}%)\n")
+            f.write(f"Titles Too Short (< 30 chars): {short_titles} ({short_titles/total_pages*100:.1f}%)\n")
+            f.write(f"Titles Too Long (> 60 chars): {long_titles} ({long_titles/total_pages*100:.1f}%)\n")
+            
+            if thin_pages / total_pages > 0.3:
+                f.write(f"\n⚠️  WARNING: {thin_pages/total_pages*100:.0f}% of pages have thin content - bad for SEO!\n")
+            if missing_meta / total_pages > 0.2:
+                f.write(f"⚠️  WARNING: {missing_meta/total_pages*100:.0f}% of pages are missing meta descriptions.\n")
+            
+            f.write("\n" + "-" * 70 + "\n")
+            f.write("2. SEO HEALTH ANALYSIS\n")
+            f.write("-" * 70 + "\n")
+            f.write(f"Pages Missing H1 Tag: {no_h1} ({no_h1/total_pages*100:.1f}%)\n")
+            f.write(f"Pages with Multiple H1 Tags: {multiple_h1s} ({multiple_h1s/total_pages*100:.1f}%)\n")
+            f.write(f"Average SEO Score: {avg_seo_score:.1f}/100\n")
+            
+            if avg_seo_score >= 80:
+                f.write("\n✓ Excellent SEO structure overall!\n")
+            elif avg_seo_score >= 60:
+                f.write(f"\n⚠️  Average SEO score is {avg_seo_score:.0f}/100 - fair but needs improvement.\n")
+            else:
+                f.write(f"\n❌ Poor SEO score ({avg_seo_score:.0f}/100) - requires significant work.\n")
+            
+            if no_h1 > 0:
+                f.write(f"⚠️  {no_h1/total_pages*100:.0f}% of pages are missing H1 tags.\n")
+            if multiple_h1s > 0:
+                f.write(f"⚠️  {multiple_h1s} pages have multiple H1 tags (bad SEO practice).\n")
+            
+            f.write("\n" + "-" * 70 + "\n")
+            f.write("3. MEDIA ANALYSIS\n")
+            f.write("-" * 70 + "\n")
+            f.write(f"Total Images: {total_images} (avg {avg_images:.1f} per page)\n")
+            f.write(f"Total Videos: {total_videos}\n")
+            f.write(f"Total Audio Files: {total_audio}\n")
+            
+            if total_videos == 0:
+                f.write("\n📝 Note: The site uses very few videos - mostly static images.\n")
+            
+            # Correlate media with load times
+            if response_times:
+                media_heavy_pages = [r for r in self.analysis_results 
+                                    if r.get("images", 0) + r.get("videos", 0) > 10]
+                if media_heavy_pages:
+                    media_heavy_times = [r.get("response_time", 0) for r in media_heavy_pages 
+                                        if r.get("response_time", 0) > 0]
+                    if media_heavy_times:
+                        avg_media_heavy = sum(media_heavy_times) / len(media_heavy_times)
+                        if avg_media_heavy > avg_response_time * 1.5:
+                            f.write(f"⚠️  Media-heavy pages load {avg_media_heavy/avg_response_time:.1f}× slower.\n")
+            
+            f.write("\n" + "-" * 70 + "\n")
+            f.write("4. PERFORMANCE ANALYSIS\n")
+            f.write("-" * 70 + "\n")
+            f.write(f"Average Response Time: {avg_response_time:.2f}s\n")
+            f.write(f"Slow Pages (> 2s): {slow_pages} ({slow_pages/total_pages*100:.1f}%)\n")
+            
+            if avg_response_time > 2:
+                f.write("\n⚠️  Average response time is slow - consider optimization.\n")
+            elif avg_response_time < 1:
+                f.write("\n✓ Excellent response times!\n")
+            
+            f.write("\n" + "=" * 70 + "\n")
+            f.write("5. OVERALL WEBSITE HEALTH SCORE\n")
+            f.write("=" * 70 + "\n")
+            f.write(f"Health Score: {avg_health_score:.1f}/100\n\n")
+            
+            if avg_health_score >= 80:
+                f.write("✓ EXCELLENT - Website is in great health!\n")
+            elif avg_health_score >= 70:
+                f.write("✓ GOOD - Overall site health is good with minor improvement areas.\n")
+            elif avg_health_score >= 60:
+                f.write("⚠️  FAIR - Website needs attention in several areas.\n")
+            else:
+                f.write("❌ POOR - Significant improvements needed across multiple areas.\n")
+            
+            f.write("\n" + "=" * 70 + "\n")
+            f.write("RECOMMENDATIONS\n")
+            f.write("=" * 70 + "\n")
+            
+            recommendations = []
+            if thin_pages / total_pages > 0.2:
+                recommendations.append(f"• Add more content to {thin_pages} thin pages (< 100 words)")
+            if missing_meta / total_pages > 0.2:
+                recommendations.append(f"• Add meta descriptions to {missing_meta} pages")
+            if no_h1 > 0:
+                recommendations.append(f"• Add H1 tags to {no_h1} pages")
+            if multiple_h1s > 0:
+                recommendations.append(f"• Fix {multiple_h1s} pages with multiple H1 tags")
+            if slow_pages > total_pages * 0.2:
+                recommendations.append(f"• Optimize {slow_pages} slow-loading pages")
+            if avg_seo_score < 70:
+                recommendations.append("• Improve overall SEO structure and content quality")
+            
+            if recommendations:
+                for rec in recommendations:
+                    f.write(f"{rec}\n")
+            else:
+                f.write("✓ No critical issues found. Continue monitoring and maintaining quality.\n")
+            
+            f.write("\n" + "=" * 70 + "\n")
+        
+        print("[+] Summary report saved to summary_report.txt")
