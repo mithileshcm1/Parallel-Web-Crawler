@@ -22,12 +22,13 @@ class PageInfo:
 
 
 class ParallelWebCrawler:
-    def __init__(self, start_url, max_pages=50, max_depth=2, num_workers=4, timeout=10):
+    def __init__(self, start_url, max_pages=50, max_depth=2, num_workers=4, timeout=10, sequential_mode=False):
         self.start_url = start_url.rstrip("/")
         self.max_pages = max_pages
         self.max_depth = max_depth
         self.num_workers = num_workers
         self.timeout = timeout
+        self.sequential_mode = sequential_mode  # New: Run in sequential mode for comparison
 
         self.session = requests.Session()
 
@@ -58,10 +59,20 @@ class ParallelWebCrawler:
     # ------------------------------------------------------------
 
     def start(self):
+        """Start crawling in either parallel or sequential mode."""
+        if self.sequential_mode:
+            self._start_sequential()
+        else:
+            self._start_parallel()
+
+    # ------------------------------------------------------------
+
+    def _start_parallel(self):
+        """Original parallel crawling implementation."""
         self.to_crawl.put((self.start_url, 0))
 
         threads = []
-        pbar = tqdm(total=self.max_pages, desc="Crawling pages", unit="page")
+        pbar = tqdm(total=self.max_pages, desc="Crawling pages (PARALLEL)", unit="page")
 
         for _ in range(self.num_workers):
             t = threading.Thread(target=self._worker, args=(pbar,), daemon=True)
@@ -83,6 +94,73 @@ class ParallelWebCrawler:
             t.join()
 
         pbar.close()
+
+    # ------------------------------------------------------------
+
+    def _start_sequential(self):
+        """Sequential crawling with single thread for performance comparison."""
+        pbar = tqdm(total=self.max_pages, desc="Crawling pages (SEQUENTIAL)", unit="page")
+        
+        # Initialize with start URL
+        to_process = [(self.start_url, 0)]
+        
+        while to_process and self.pages_crawled < self.max_pages:
+            url, depth = to_process.pop(0)
+            
+            # Skip visited URLs
+            if url in self.visited:
+                continue
+            self.visited.add(url)
+            
+            # Stop if limit reached
+            if self.pages_crawled >= self.max_pages:
+                break
+            self.pages_crawled += 1
+            
+            # Fetch page
+            info = self._fetch_page(url, depth)
+            self.results.append(info)
+            
+            # Broken?
+            if info.status_code is None or info.status_code >= 400:
+                self.broken_links.append(
+                    (info.url, info.status_code, info.title or "")
+                )
+            else:
+                # Analyze page
+                metrics = self._analyze_page(info)
+                self.analysis_results.append(metrics)
+                
+                # Enqueue new links
+                if depth < self.max_depth and info.html:
+                    new_links = self._extract_links(info, depth)
+                    to_process.extend(new_links)
+            
+            pbar.update(1)
+        
+        pbar.close()
+
+    # ------------------------------------------------------------
+
+    def _extract_links(self, info: PageInfo, depth: int) -> List[Tuple[str, int]]:
+        """Extract and return links from a page (helper for sequential mode)."""
+        new_links = []
+        try:
+            soup = BeautifulSoup(info.html, "html.parser")
+            for link in soup.find_all("a", href=True):
+                href = link["href"]
+                full = normalize_url(info.url, href)  # Fixed: correct parameter order
+                if full and same_domain(full, self.start_url):
+                    # Only add if not already visited
+                    if full not in self.visited:
+                        new_links.append((full, depth + 1))
+                    
+                    # Track link frequency
+                    self.link_frequency[full] = self.link_frequency.get(full, 0) + 1
+        except Exception:
+            pass
+        
+        return new_links
 
     # ------------------------------------------------------------
 

@@ -1,51 +1,51 @@
 URL	Depth	Status	Title
-http://quotes.toscrape.com	0	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/choices/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/miracle/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/inspirational/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/thinking/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/deep-thoughts/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/abilities/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/miracles/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/login	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/live/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/change/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/life/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/world/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/aliteracy/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/books/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/author/Albert-Einstein	1	200	Quotes to Scrape
-http://quotes.toscrape.com/author/J-K-Rowling	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/classic/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/success/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/be-yourself/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/failure/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/adulthood/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/value/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/misattributed-eleanor-roosevelt/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/love/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/author/Marilyn-Monroe	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/simile/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/author/Jane-Austen	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/love/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/obvious/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/edison/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/humor/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/author/Eleanor-Roosevelt	1	200	Quotes to Scrape
-http://quotes.toscrape.com/page/2/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/paraphrased/page/1/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/life/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/author/Steve-Martin	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/inspirational/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/author/Thomas-A-Edison	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/friends/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/author/Andre-Gide	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/truth/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/open-mind/page/1/	2	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/simile/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/humor/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/reading/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/friendship/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/tag/books/	1	200	Quotes to Scrape
-http://quotes.toscrape.com/author/Terry-Pratchett	2	200	Quotes to Scrape
+https://www.samsung.com/in/?srsltid=AfmBOor2RKmGy5NcuP-umC8mWA0nAq3rQKb1xPJTGykS1BYWbbDGBUF2	0	200	Samsung India | Mobile | Tablets | TV | Home Appliances
+https://www.samsung.com/in/info/privacy/	1	200	Samsung Privacy Policy | Samsung India
+https://www.samsung.com/in/live-shop/	1	200	Samsung Live Shop - Live Shopping | Samsung India
+https://www.samsung.com/in/store/samsung-bkc/	1	200	Samsung BKC Store in Bandra Kurla, Mumbai | Samsung India
+https://www.samsung.com/in/tablets/all-tablets/	1	200	Buy Samsung Tabs - Latest Galaxy Series Tablets | Samsung India
+https://www.samsung.com/in/audio-sound/all-audio-sound/	1	200	Bluetooth -Wireless Headphones -Galaxy Buds | Samsung India | Samsung India
+https://www.samsung.com/in/mobile-accessories/all-mobile-accessories/	1	200	Mobile Accessories Online - Chargers, Headphone, Covers | Samsung India
+https://www.samsung.com/in/offer/samsung-care-plus/	1	200	Samsung Care+ for Mobile, TV & Digital Appliances | Samsung India
+https://www.samsung.com/in/ai-products/	1	200	Samsung's AI Products | AI devices & features | Samsung India
+https://www.samsung.com/in/	1	200	Samsung India | Mobile | Tablets | TV | Home Appliances
+https://www.samsung.com/in/offer/ai-just-for-you/	1	200	AI, just for you | Samsung India
+https://www.samsung.com/in/computers/galaxy-book/galaxy-book5-pro/buy/	1	200	Buy Galaxy Book5 Pro |Book5 Pro 360 - Price and Offers | Samsung India
+https://www.samsung.com/in/buy-direct-get-more/	1	200	Buy Direct Get More | Premium Benefits | Samsung IN
+https://www.samsung.com/in/offer/	1	200	Samsung Offers & Deals on Smartphones, Wearables, TVs & Home Appliances | Samsung India
+https://www.samsung.com/in/smartphones/galaxy-z-fold7/buy/	1	200	Buy Samsung Galaxy Z Fold7 | Price & Offers | Samsung India
+https://www.samsung.com/in/multistore/corporate/prelogin/	1	200	Corporate Discounts and Benefits For Employees | Samsung India
+https://www.samsung.com/in/tablets/galaxy-tab-s11/buy/	1	200	Buy Galaxy Tab S11 | Tab S11 Ultra - Price & Offers | Samsung India
+https://www.samsung.com/in/smartthings/	1	200	Smart home with Samsung SmartThings | Samsung India
+https://www.samsung.com/in/smartphones/all-smartphones/	1	200	Buy Samsung Smartphone - Latest Android Mobile Phones | Samsung India
+https://www.samsung.com/in/computers/all-computers/?galaxy-book	1	200	Buy Galaxy Books - Latest Samsung Galaxy Series Laptops | Samsung India
+https://www.samsung.com/in/rings/all-rings/	1	200	Galaxy Ring - Smart Ring | Fitness Tracker Ring | Samsung India
+https://www.samsung.com/in/watches/all-watches/	1	200	Buy Smart Watch - Samsung Latest Galaxy Watches Online | Samsung India
+https://www.samsung.com/in/watches/galaxy-watch/galaxy-watch8-40mm-silver-bluetooth-sm-l320nzsains/buy/	1	200	Buy Watch8 Bluetooth (4.0 cm) Silver -Price | Samsung India
+https://www.samsung.com/in/mobile/	1	200	Galaxy Mobile Phones, Watches & Buds | Samsung India
+https://www.samsung.com/in/galaxy-ai/	1	200	Galaxy AI | Mobile AI and AI Features on Devices | Samsung IN
+https://www.samsung.com/in/smartphones/galaxy-s25-ultra/buy/	1	200	Buy new Galaxy S25 Ultra | Price & Offers  | Samsung India
+https://www.samsung.com/in/one-ui/	1	200	One UI | Samsung IN
+https://www.samsung.com/in/washers-and-dryers/washing-machines/ww8400d-front-loading-smartthings-ai-energy-made-a-xx-percent-extra-energy-efficiency-ai-ecobubble-12kg-navy-ww12db8b54gstl/	1	200	Buy 12.0 kg Front load Washer with SmartThings AI | Samsung India
+https://www.samsung.com/in/audio-devices/soundbar/q990f-black-hw-q990f-xl/	1	200	2025 Q990F Q-Series Wireless Dolby Atmos 11.1.4ch Soundbar | Samsung {Country Name}
+https://www.samsung.com/in/refrigerators/french-door/rf9000-t-style-french-door-32inch-family-hub-810l-stainless-steel-rf71db9950qdtl/	1	200	809 L Bespoke French Door Refrigerator RF71DB9950QD | Samsung India
+https://www.samsung.com/in/lifestyle-tvs/the-frame/ls03f-75-inch-art-store-black-qa75ls03fauxxl/	1	200	Buy 1.89 m (75)  The Frame 4K Smart TV QA75LS03FAUXXL | Samsung India
+https://www.samsung.com/in/monitors/gaming/odyssey-oled-g9-g93sd-49-inch-oled-dual-qhd-ls49dg930swxxl/	1	200	Buy 1.24 m (49) Odyssey Gaming Monitor LS49DG930SW  | Samsung India
+https://www.samsung.com/in/tvs/oled-tv/s95f-65-inch-oled-4k-smart-tv-qa65s95faulxl/	1	200	Buy Online1.63 m (65)  OLED 4K Smart TV QA65S95FAUL | Samsung India
+https://www.samsung.com/in/web/cart/	1	200	Samsung India
+https://www.samsung.com/in/microwave-ovens/convection/mw7300b-mc32b7382qc-tl/	1	200	Buy Convection Microwave Oven Grill 32L Charcoal MC32B7382QC | Samsung India
+https://www.samsung.com/in/air-conditioners/split-ac/ar9500t-ar70f12caawneu-inverter-split-ac-5-0-kw-5star-ar60f19d1zwnna/	1	200	Inverter Ac - Buy 5 Star Split Ac Online Ar60F19D1Zw | Samsung India
+https://www.samsung.com/in/apps/	1	200	Samsung Apps and Services | Samsung India
+https://www.samsung.com/in/offer/exchange/	1	200	Samsung Exchange – Exchange old device at great value | Samsung India
+https://www.samsung.com/in/tvs/qled-tv/qn900f-65-inch-neo-qled-8k-mini-led-smart-tv-qa65qn900fuxxl/	1	200	Buy 1.63 m (65)  Neo QLED 8K Smart TV QA65QN900FUXXL | Samsung India
+https://www.samsung.com/in/mobile/why-galaxy/	1	200	Why Galaxy | Samsung India
+https://www.samsung.com/in/mobile/switch-to-galaxy/	1	200	Switch to Galaxy | Samsung India
+https://www.samsung.com/in/apps/samsung-health/	1	200	Samsung Health | Apps & Services | Samsung India
+https://www.samsung.com/in/lifestyle-tvs/all-lifestyle-tvs/?the-sero	1	200	Compare All Lifestyle TVs - View the Range | Samsung India
+https://www.samsung.com/in/tvs/qled-tv/	1	200	Samsung Real QLED TV online in India with Quantum Dot | Samsung India
+https://www.samsung.com/in/tvs/all-tvs/?crystal-uhd	1	200	Latest Samsung NeoQLED, OLED, QLED & UHD TVs Online | Samsung India
+https://www.samsung.com/in/tvs/oled-tv/	1	200	Buy Online OLED 4K Smart TV Check Out Price  & Feature | Samsung India
+https://www.samsung.com/in/tvs/qled-tv/?neo-qled-8k+neo-qled-4k	1	200	Samsung Real QLED TV online in India with Quantum Dot | Samsung India
+https://www.samsung.com/in/tvs/all-tvs/	1	200	Latest Samsung NeoQLED, OLED, QLED & UHD TVs Online | Samsung India
+https://www.samsung.com/in/lifestyle-tvs/the-serif/	1	200	Browse & Compare The Serif TVs | Samsung India
+https://www.samsung.com/in/lifestyle-tvs/the-frame/	1	200	The Frame Tv - Smart Digital Television | Samsung India

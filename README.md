@@ -1,20 +1,28 @@
 # Parallel Web Crawler – Advanced Version
 
-This project is a **multi-stage parallel web crawler** in Python.
+This project is a **multi-stage parallel web crawler** in Python with a modern **React dashboard**.
 It demonstrates:
 
 - Thread-based parallel crawling (I/O-bound)
+- **Sequential mode** for performance comparison
 - Parallel data analysis on crawled pages
 - Parallel broken-link detection and reporting
 - Shared data structures + synchronization
 - Performance measurement (threads vs time)
+- Real-time progress tracking via REST API
+- Interactive data visualization and analysis
 
 ## Features
+
+### Core Crawler Features
 
 - Crawls pages from a given **start URL**, limited by:
   - `--max-pages`
   - `--max-depth`
 - Restricts to the **same domain** as the start URL.
+- **Dual execution modes**:
+  - **⚡ Parallel Mode**: Multi-threaded crawling (4-32 workers)
+  - **🔄 Sequential Mode**: Single-threaded for performance benchmarking
 - Uses a pool of **crawl worker threads** to:
   - Fetch pages
   - Extract links
@@ -24,19 +32,32 @@ It demonstrates:
   - **Content quality**: thin_content flag, title_length, meta_desc_length
   - **SEO health**: has_h1, multiple_h1, title validation, seo_score (0-100)
   - **Media analysis**: videos, audio elements
-  - **Performance**: response_time per page
+  - **Performance**: response_time per page, execution_time total
   - **Overall**: health_score (composite 0-100)
 - Uses a dedicated **broken-link reporter thread** to:
   - Continuously write broken links to `broken_links.txt`
   - While crawling is still running
 - Tracks **link frequency** (how many times each URL is linked)
 - Generates **comprehensive summary report** with insights and recommendations
-- Saves results to:
-  - `crawl_results.txt` – basic info per crawled page
-  - `link_frequency.txt` – most-linked URLs
-  - `analysis_results.csv` – detailed per-page metrics (22+ columns)
-  - `broken_links.txt` – broken URLs + status
-  - `summary_report.txt` – automated analysis and recommendations
+
+### Web Dashboard Features
+
+- **Modern React UI** with Tailwind CSS
+- **Real-time progress tracking** during crawls
+- **8 interactive charts** (SEO distribution, health scores, performance, etc.)
+- **3 data tables** with search, filter, and sort
+- **Page detail modal** with in-depth analysis
+- **Automated recommendations** based on crawl results
+- **File downloads** for all output formats
+- **Performance comparison** between parallel and sequential modes
+
+### Output Files
+
+- `crawl_results.txt` – basic info per crawled page
+- `link_frequency.txt` – most-linked URLs
+- `analysis_results.csv` – detailed per-page metrics (22+ columns)
+- `broken_links.txt` – broken URLs + status
+- `summary_report.txt` – automated analysis and recommendations
 
 ## Project Structure
 

@@ -8,52 +8,49 @@ Broken Links Found: 0
 ----------------------------------------------------------------------
 1. CONTENT QUALITY ANALYSIS
 ----------------------------------------------------------------------
-Thin Content Pages (< 100 words): 24 (48.0%)
-Missing Meta Descriptions: 50 (100.0%)
-Titles Too Short (< 30 chars): 50 (100.0%)
-Titles Too Long (> 60 chars): 0 (0.0%)
-
-⚠️  WARNING: 48% of pages have thin content - bad for SEO!
-⚠️  WARNING: 100% of pages are missing meta descriptions.
+Thin Content Pages (< 100 words): 1 (2.0%)
+Missing Meta Descriptions: 0 (0.0%)
+Titles Too Short (< 30 chars): 3 (6.0%)
+Titles Too Long (> 60 chars): 29 (58.0%)
 
 ----------------------------------------------------------------------
 2. SEO HEALTH ANALYSIS
 ----------------------------------------------------------------------
-Pages Missing H1 Tag: 0 (0.0%)
-Pages with Multiple H1 Tags: 0 (0.0%)
-Average SEO Score: 57.2/100
+Pages Missing H1 Tag: 3 (6.0%)
+Pages with Multiple H1 Tags: 3 (6.0%)
+Average SEO Score: 89.5/100
 
-❌ Poor SEO score (57/100) - requires significant work.
+✓ Excellent SEO structure overall!
+⚠️  6% of pages are missing H1 tags.
+⚠️  3 pages have multiple H1 tags (bad SEO practice).
 
 ----------------------------------------------------------------------
 3. MEDIA ANALYSIS
 ----------------------------------------------------------------------
-Total Images: 0 (avg 0.0 per page)
-Total Videos: 0
+Total Images: 11134 (avg 222.7 per page)
+Total Videos: 19
 Total Audio Files: 0
-
-📝 Note: The site uses very few videos - mostly static images.
 
 ----------------------------------------------------------------------
 4. PERFORMANCE ANALYSIS
 ----------------------------------------------------------------------
-Average Response Time: 0.62s
-Slow Pages (> 2s): 1 (2.0%)
+Average Response Time: 2.57s
+Slow Pages (> 2s): 37 (74.0%)
 
-✓ Excellent response times!
+⚠️  Average response time is slow - consider optimization.
 
 ======================================================================
 5. OVERALL WEBSITE HEALTH SCORE
 ======================================================================
-Health Score: 72.9/100
+Health Score: 84.6/100
 
-✓ GOOD - Overall site health is good with minor improvement areas.
+✓ EXCELLENT - Website is in great health!
 
 ======================================================================
 RECOMMENDATIONS
 ======================================================================
-• Add more content to 24 thin pages (< 100 words)
-• Add meta descriptions to 50 pages
-• Improve overall SEO structure and content quality
+• Add H1 tags to 3 pages
+• Fix 3 pages with multiple H1 tags
+• Optimize 37 slow-loading pages
 
 ======================================================================
