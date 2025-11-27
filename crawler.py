@@ -68,8 +68,16 @@ class ParallelWebCrawler:
     # ------------------------------------------------------------
 
     def _start_parallel(self):
-        """Original parallel crawling implementation."""
+        """Original parallel crawling implementation with early termination."""
         self.to_crawl.put((self.start_url, 0))
+        
+        # Track active workers
+        self.active_workers = 0
+        self.active_workers_lock = threading.Lock()
+        
+        # Track consecutive empty queue checks
+        self.empty_queue_count = 0
+        self.empty_queue_lock = threading.Lock()
 
         threads = []
         pbar = tqdm(total=self.max_pages, desc="Crawling pages (PARALLEL)", unit="page")
@@ -79,12 +87,32 @@ class ParallelWebCrawler:
             threads.append(t)
             t.start()
 
-        # Main loop: wait until page limit reached
+        # Main loop: wait until page limit reached OR no more work available
         while True:
             with self.pages_lock:
                 if self.pages_crawled >= self.max_pages:
                     self.stop_flag = True
                     break
+            
+            # Check if queue is empty and all workers are idle
+            queue_empty = self.to_crawl.empty()
+            with self.active_workers_lock:
+                all_idle = self.active_workers == 0
+            
+            if queue_empty and all_idle:
+                with self.empty_queue_lock:
+                    self.empty_queue_count += 1
+                    # If queue empty for 3 consecutive checks (3 seconds), stop
+                    if self.empty_queue_count >= 3:
+                        print(f"\n[!] No more pages to crawl. Stopping early at {self.pages_crawled} pages.")
+                        self.stop_flag = True
+                        break
+            else:
+                with self.empty_queue_lock:
+                    self.empty_queue_count = 0
+            
+            # Small sleep to avoid busy-waiting
+            threading.Event().wait(1)
 
         # Workers terminate automatically when stop_flag is set
         for _ in range(self.num_workers):
@@ -177,16 +205,24 @@ class ParallelWebCrawler:
                 return
 
             url, depth = item
+            
+            # Mark worker as active AFTER getting work
+            with self.active_workers_lock:
+                self.active_workers += 1
 
             # Skip visited URLs
             with self.visited_lock:
                 if url in self.visited:
+                    with self.active_workers_lock:
+                        self.active_workers -= 1
                     continue
                 self.visited.add(url)
 
             # Stop if limit reached
             with self.pages_lock:
                 if self.pages_crawled >= self.max_pages:
+                    with self.active_workers_lock:
+                        self.active_workers -= 1
                     return
                 self.pages_crawled += 1
 
@@ -212,6 +248,10 @@ class ParallelWebCrawler:
                     self._enqueue_links(info, depth)
 
             pbar.update(1)
+
+            # Mark worker as idle after completing work
+            with self.active_workers_lock:
+                self.active_workers -= 1
 
     # ------------------------------------------------------------
 

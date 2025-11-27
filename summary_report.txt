@@ -37,15 +37,15 @@ Total Audio Files: 0
 ----------------------------------------------------------------------
 4. PERFORMANCE ANALYSIS
 ----------------------------------------------------------------------
-Average Response Time: 0.29s
-Slow Pages (> 2s): 0 (0.0%)
+Average Response Time: 0.73s
+Slow Pages (> 2s): 1 (2.0%)
 
 ✓ Excellent response times!
 
 ======================================================================
 5. OVERALL WEBSITE HEALTH SCORE
 ======================================================================
-Health Score: 73.2/100
+Health Score: 71.5/100
 
 ✓ GOOD - Overall site health is good with minor improvement areas.
 
