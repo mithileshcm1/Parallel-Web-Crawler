@@ -40,7 +40,7 @@ def start_crawl():
     threads = data.get('threads', 8)
     max_pages = data.get('max_pages', 50)
     max_depth = data.get('max_depth', 2)
-    sequential_mode = data.get('sequential_mode', False)  # New parameter
+    sequential_mode = data.get('sequential_mode', False)
     
     if not url:
         return jsonify({'error': 'URL is required'}), 400
@@ -51,9 +51,10 @@ def start_crawl():
         max_pages=max_pages,
         max_depth=max_depth,
         num_workers=threads,
-        sequential_mode=sequential_mode  # Pass sequential mode flag
+        sequential_mode=sequential_mode
     )
     
+    # Reset state for new crawl
     crawler_state['crawler'] = crawler
     crawler_state['is_running'] = True
     crawler_state['total_pages'] = max_pages
@@ -63,28 +64,77 @@ def start_crawl():
     crawler_state['execution_time'] = 0
     crawler_state['mode'] = 'sequential' if sequential_mode else 'parallel'
     
+    # Clear previous metadata file
+    try:
+        if os.path.exists('crawl_metadata.txt'):
+            os.remove('crawl_metadata.txt')
+            print("[DEBUG] Removed old crawl_metadata.txt")
+    except Exception as e:
+        print(f"[DEBUG] Error removing metadata: {e}")
+    
     # Start crawl in background thread
     def run_crawl():
+        global crawler_state
         try:
+            print(f"[DEBUG] Starting crawl with {threads} threads, mode={crawler_state['mode']}")
+            
+            # RUN THE CRAWLER
             crawler.start()
-            crawler_state['end_time'] = time.time()
-            crawler_state['execution_time'] = crawler_state['end_time'] - crawler_state['start_time']
+            
+            # Calculate execution time from start_time
+            end = time.time()
+            execution_time = end - crawler_state['start_time']  # Use the same start_time as elapsed time
+            
+            print(f"[DEBUG] ✅ CRAWL COMPLETED!")
+            print(f"[DEBUG] Execution time: {execution_time:.2f} seconds")
+            
+            # Update state
+            crawler_state['end_time'] = end
+            crawler_state['execution_time'] = execution_time
+            crawler_state['status'] = 'Complete'
+            
+            # Save crawler results
             crawler.save_results('crawl_results.txt', 'analysis_results.csv')
             
-            # Save execution time and mode to file for persistence
-            with open('crawl_metadata.txt', 'w', encoding='utf-8') as f:
-                f.write(f"execution_time={crawler_state['execution_time']}\n")
-                f.write(f"mode={crawler_state['mode']}\n")
-                f.write(f"start_time={crawler_state['start_time']}\n")
-                f.write(f"end_time={crawler_state['end_time']}\n")
+            # Save metadata
+            metadata_content = (
+                f"execution_time={execution_time}\n"
+                f"mode={crawler_state['mode']}\n"
+                f"start_time={crawler_state['start_time']}\n"
+                f"end_time={end}\n"
+                f"threads={threads}\n"
+                f"pages={max_pages}\n"
+            )
             
-            crawler_state['status'] = 'Complete'
+            with open('crawl_metadata.txt', 'w', encoding='utf-8') as f:
+                f.write(metadata_content)
+            
+            print(f"[DEBUG] ✅ Metadata saved: execution_time={execution_time:.2f}s")
+                
         except Exception as e:
+            print(f"[DEBUG] ❌ ERROR: {e}")
+            import traceback
+            traceback.print_exc()
+            
+            # Calculate execution time even on error
+            end = time.time()
+            execution_time = end - crawler_state['start_time']
+            
             crawler_state['status'] = f'Error: {str(e)}'
-            crawler_state['end_time'] = time.time()
-            crawler_state['execution_time'] = crawler_state['end_time'] - crawler_state['start_time']
+            crawler_state['end_time'] = end
+            crawler_state['execution_time'] = execution_time
+            
+            # Save error metadata
+            try:
+                with open('crawl_metadata.txt', 'w', encoding='utf-8') as f:
+                    f.write(f"execution_time={execution_time}\n")
+                    f.write(f"mode={crawler_state['mode']}\n")
+                    f.write(f"error={str(e)}\n")
+            except:
+                pass
         finally:
             crawler_state['is_running'] = False
+            print(f"[DEBUG] Crawl finished: execution_time={crawler_state['execution_time']:.2f}s")
     
     thread = threading.Thread(target=run_crawl, daemon=True)
     thread.start()
@@ -113,13 +163,22 @@ def get_progress():
         else:
             elapsed_time = time.time() - crawler_state['start_time']
     
+    # Report execution_time as live elapsed while running
+    # so the dashboard sees an updating value without manual refresh.
+    execution_time_val = crawler_state.get('execution_time', 0) or 0
+    if crawler_state.get('is_running'):
+        execution_time_val = elapsed_time
+    elif execution_time_val == 0 and crawler_state.get('end_time') and crawler_state.get('start_time'):
+        # If not marked but crawl finished, compute from timestamps
+        execution_time_val = crawler_state['end_time'] - crawler_state['start_time']
+    
     return jsonify({
         'pages_crawled': pages_crawled,
         'total': crawler_state['total_pages'],
         'status': crawler_state['status'],
         'mode': crawler_state['mode'],
         'elapsed_time': round(elapsed_time, 2),
-        'execution_time': round(crawler_state['execution_time'], 2) if crawler_state['execution_time'] else 0
+        'execution_time': round(execution_time_val, 2)
     })
 
 @app.route('/api/results', methods=['GET'])
@@ -155,6 +214,8 @@ def get_results():
 @app.route('/api/summary', methods=['GET'])
 def get_summary():
     """Get summary statistics."""
+    print("[DEBUG] /api/summary called")
+    
     try:
         results = []
         with open('analysis_results.csv', 'r', encoding='utf-8') as f:
@@ -175,6 +236,7 @@ def get_summary():
                 results.append(row)
         
         if not results:
+            print("[DEBUG] No results found in CSV")
             return jsonify({})
         
         total_pages = len(results)
@@ -216,29 +278,42 @@ def get_summary():
         except:
             pass
         
-        # Read execution time and mode from persisted metadata
-        execution_time = 0
-        mode = 'parallel'
-        try:
-            with open('crawl_metadata.txt', 'r', encoding='utf-8') as f:
-                for line in f:
-                    if line.startswith('execution_time='):
-                        execution_time = float(line.split('=')[1].strip())
-                    elif line.startswith('mode='):
-                        mode = line.split('=')[1].strip()
-        except:
-            # Fallback to in-memory state if file doesn't exist
-            execution_time = crawler_state.get('execution_time', 0)
-            mode = crawler_state.get('mode', 'parallel')
+        # Get execution time and mode - PRIORITY: in-memory state > file
+        execution_time = crawler_state.get('execution_time', 0)
+        mode = crawler_state.get('mode', 'parallel')
+        
+        print(f"[DEBUG] In-memory state:")
+        print(f"[DEBUG]   execution_time = {execution_time:.2f}s")
+        print(f"[DEBUG]   mode = {mode}")
+        
+        # If running, report live elapsed time; else if 0, try reading from file
+        if crawler_state.get('is_running') and crawler_state.get('start_time'):
+            try:
+                execution_time = time.time() - crawler_state['start_time']
+            except Exception:
+                pass
+        elif execution_time == 0 and os.path.exists('crawl_metadata.txt'):
+            print(f"[DEBUG] In-memory is 0, trying file...")
+            try:
+                with open('crawl_metadata.txt', 'r', encoding='utf-8') as f:
+                    for line in f:
+                        if line.startswith('execution_time='):
+                            execution_time = float(line.split('=')[1].strip())
+                            print(f"[DEBUG] File: execution_time={execution_time:.2f}s")
+                        elif line.startswith('mode='):
+                            mode = line.split('=')[1].strip()
+                            print(f"[DEBUG] File: mode={mode}")
+            except Exception as e:
+                print(f"[DEBUG] Error reading file: {e}")
         
         summary = {
             'total_pages': total_pages,
-            'avg_seo_score': avg_seo_score,
-            'avg_health_score': avg_health_score,
-            'avg_response_time': avg_response_time,
-            'thin_content_percent': thin_content_percent,
-            'missing_meta_desc_percent': missing_meta_desc_percent,
-            'slow_pages_percent': slow_pages_percent,
+            'avg_seo_score': round(avg_seo_score, 2),
+            'avg_health_score': round(avg_health_score, 2),
+            'avg_response_time': round(avg_response_time, 2),
+            'thin_content_percent': round(thin_content_percent, 2),
+            'missing_meta_desc_percent': round(missing_meta_desc_percent, 2),
+            'slow_pages_percent': round(slow_pages_percent, 2),
             'broken_links_count': broken_links_count,
             'most_linked_page': most_linked_page,
             'most_linked_count': most_linked_count,
@@ -248,9 +323,17 @@ def get_summary():
             'mode': mode
         }
         
+        print(f"[DEBUG] 🎯 Returning execution_time={execution_time:.2f}s")
+        
         return jsonify(summary)
         
-    except FileNotFoundError:
+    except FileNotFoundError as e:
+        print(f"[DEBUG] ❌ File not found: {e}")
+        return jsonify({})
+    except Exception as e:
+        print(f"[DEBUG] ❌ Error in summary: {e}")
+        import traceback
+        traceback.print_exc()
         return jsonify({})
 
 @app.route('/api/download', methods=['GET'])
@@ -263,7 +346,8 @@ def download_file():
         'analysis_results.csv',
         'broken_links.txt',
         'link_frequency.txt',
-        'summary_report.txt'
+        'summary_report.txt',
+        'crawl_metadata.txt'
     ]
     
     if filename not in allowed_files:

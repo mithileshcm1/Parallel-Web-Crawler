@@ -1,51 +1,51 @@
 URL	Depth	Status	Title
-https://www.samsung.com/in/?srsltid=AfmBOor2RKmGy5NcuP-umC8mWA0nAq3rQKb1xPJTGykS1BYWbbDGBUF2	0	200	Samsung India | Mobile | Tablets | TV | Home Appliances
-https://www.samsung.com/in/info/privacy/	1	200	Samsung Privacy Policy | Samsung India
-https://www.samsung.com/in/live-shop/	1	200	Samsung Live Shop - Live Shopping | Samsung India
-https://www.samsung.com/in/store/samsung-bkc/	1	200	Samsung BKC Store in Bandra Kurla, Mumbai | Samsung India
-https://www.samsung.com/in/tablets/all-tablets/	1	200	Buy Samsung Tabs - Latest Galaxy Series Tablets | Samsung India
-https://www.samsung.com/in/audio-sound/all-audio-sound/	1	200	Bluetooth -Wireless Headphones -Galaxy Buds | Samsung India | Samsung India
-https://www.samsung.com/in/mobile-accessories/all-mobile-accessories/	1	200	Mobile Accessories Online - Chargers, Headphone, Covers | Samsung India
-https://www.samsung.com/in/offer/samsung-care-plus/	1	200	Samsung Care+ for Mobile, TV & Digital Appliances | Samsung India
-https://www.samsung.com/in/ai-products/	1	200	Samsung's AI Products | AI devices & features | Samsung India
-https://www.samsung.com/in/	1	200	Samsung India | Mobile | Tablets | TV | Home Appliances
-https://www.samsung.com/in/offer/ai-just-for-you/	1	200	AI, just for you | Samsung India
-https://www.samsung.com/in/computers/galaxy-book/galaxy-book5-pro/buy/	1	200	Buy Galaxy Book5 Pro |Book5 Pro 360 - Price and Offers | Samsung India
-https://www.samsung.com/in/buy-direct-get-more/	1	200	Buy Direct Get More | Premium Benefits | Samsung IN
-https://www.samsung.com/in/offer/	1	200	Samsung Offers & Deals on Smartphones, Wearables, TVs & Home Appliances | Samsung India
-https://www.samsung.com/in/smartphones/galaxy-z-fold7/buy/	1	200	Buy Samsung Galaxy Z Fold7 | Price & Offers | Samsung India
-https://www.samsung.com/in/multistore/corporate/prelogin/	1	200	Corporate Discounts and Benefits For Employees | Samsung India
-https://www.samsung.com/in/tablets/galaxy-tab-s11/buy/	1	200	Buy Galaxy Tab S11 | Tab S11 Ultra - Price & Offers | Samsung India
-https://www.samsung.com/in/smartthings/	1	200	Smart home with Samsung SmartThings | Samsung India
-https://www.samsung.com/in/smartphones/all-smartphones/	1	200	Buy Samsung Smartphone - Latest Android Mobile Phones | Samsung India
-https://www.samsung.com/in/computers/all-computers/?galaxy-book	1	200	Buy Galaxy Books - Latest Samsung Galaxy Series Laptops | Samsung India
-https://www.samsung.com/in/rings/all-rings/	1	200	Galaxy Ring - Smart Ring | Fitness Tracker Ring | Samsung India
-https://www.samsung.com/in/watches/all-watches/	1	200	Buy Smart Watch - Samsung Latest Galaxy Watches Online | Samsung India
-https://www.samsung.com/in/watches/galaxy-watch/galaxy-watch8-40mm-silver-bluetooth-sm-l320nzsains/buy/	1	200	Buy Watch8 Bluetooth (4.0 cm) Silver -Price | Samsung India
-https://www.samsung.com/in/mobile/	1	200	Galaxy Mobile Phones, Watches & Buds | Samsung India
-https://www.samsung.com/in/galaxy-ai/	1	200	Galaxy AI | Mobile AI and AI Features on Devices | Samsung IN
-https://www.samsung.com/in/smartphones/galaxy-s25-ultra/buy/	1	200	Buy new Galaxy S25 Ultra | Price & Offers  | Samsung India
-https://www.samsung.com/in/one-ui/	1	200	One UI | Samsung IN
-https://www.samsung.com/in/washers-and-dryers/washing-machines/ww8400d-front-loading-smartthings-ai-energy-made-a-xx-percent-extra-energy-efficiency-ai-ecobubble-12kg-navy-ww12db8b54gstl/	1	200	Buy 12.0 kg Front load Washer with SmartThings AI | Samsung India
-https://www.samsung.com/in/audio-devices/soundbar/q990f-black-hw-q990f-xl/	1	200	2025 Q990F Q-Series Wireless Dolby Atmos 11.1.4ch Soundbar | Samsung {Country Name}
-https://www.samsung.com/in/refrigerators/french-door/rf9000-t-style-french-door-32inch-family-hub-810l-stainless-steel-rf71db9950qdtl/	1	200	809 L Bespoke French Door Refrigerator RF71DB9950QD | Samsung India
-https://www.samsung.com/in/lifestyle-tvs/the-frame/ls03f-75-inch-art-store-black-qa75ls03fauxxl/	1	200	Buy 1.89 m (75)  The Frame 4K Smart TV QA75LS03FAUXXL | Samsung India
-https://www.samsung.com/in/monitors/gaming/odyssey-oled-g9-g93sd-49-inch-oled-dual-qhd-ls49dg930swxxl/	1	200	Buy 1.24 m (49) Odyssey Gaming Monitor LS49DG930SW  | Samsung India
-https://www.samsung.com/in/tvs/oled-tv/s95f-65-inch-oled-4k-smart-tv-qa65s95faulxl/	1	200	Buy Online1.63 m (65)  OLED 4K Smart TV QA65S95FAUL | Samsung India
-https://www.samsung.com/in/web/cart/	1	200	Samsung India
-https://www.samsung.com/in/microwave-ovens/convection/mw7300b-mc32b7382qc-tl/	1	200	Buy Convection Microwave Oven Grill 32L Charcoal MC32B7382QC | Samsung India
-https://www.samsung.com/in/air-conditioners/split-ac/ar9500t-ar70f12caawneu-inverter-split-ac-5-0-kw-5star-ar60f19d1zwnna/	1	200	Inverter Ac - Buy 5 Star Split Ac Online Ar60F19D1Zw | Samsung India
-https://www.samsung.com/in/apps/	1	200	Samsung Apps and Services | Samsung India
-https://www.samsung.com/in/offer/exchange/	1	200	Samsung Exchange – Exchange old device at great value | Samsung India
-https://www.samsung.com/in/tvs/qled-tv/qn900f-65-inch-neo-qled-8k-mini-led-smart-tv-qa65qn900fuxxl/	1	200	Buy 1.63 m (65)  Neo QLED 8K Smart TV QA65QN900FUXXL | Samsung India
-https://www.samsung.com/in/mobile/why-galaxy/	1	200	Why Galaxy | Samsung India
-https://www.samsung.com/in/mobile/switch-to-galaxy/	1	200	Switch to Galaxy | Samsung India
-https://www.samsung.com/in/apps/samsung-health/	1	200	Samsung Health | Apps & Services | Samsung India
-https://www.samsung.com/in/lifestyle-tvs/all-lifestyle-tvs/?the-sero	1	200	Compare All Lifestyle TVs - View the Range | Samsung India
-https://www.samsung.com/in/tvs/qled-tv/	1	200	Samsung Real QLED TV online in India with Quantum Dot | Samsung India
-https://www.samsung.com/in/tvs/all-tvs/?crystal-uhd	1	200	Latest Samsung NeoQLED, OLED, QLED & UHD TVs Online | Samsung India
-https://www.samsung.com/in/tvs/oled-tv/	1	200	Buy Online OLED 4K Smart TV Check Out Price  & Feature | Samsung India
-https://www.samsung.com/in/tvs/qled-tv/?neo-qled-8k+neo-qled-4k	1	200	Samsung Real QLED TV online in India with Quantum Dot | Samsung India
-https://www.samsung.com/in/tvs/all-tvs/	1	200	Latest Samsung NeoQLED, OLED, QLED & UHD TVs Online | Samsung India
-https://www.samsung.com/in/lifestyle-tvs/the-serif/	1	200	Browse & Compare The Serif TVs | Samsung India
-https://www.samsung.com/in/lifestyle-tvs/the-frame/	1	200	The Frame Tv - Smart Digital Television | Samsung India
+https://www.awwwards.com	0	200	Awwwards - Website Awards - Best Web Design Trends
+https://www.awwwards.com/	1	200	Awwwards - Website Awards - Best Web Design Trends
+https://www.awwwards.com/websites/	1	200	Winning websites. Web Design Inspiration - Awwwards
+https://www.awwwards.com/websites/nominees/	1	200	Nominees - Awwwards
+https://www.awwwards.com/websites/sites_of_the_day/	1	200	Sites Of The Day - Awwwards
+https://www.awwwards.com/websites/sites_of_the_month/	1	200	Sites Of The Month - Awwwards
+https://www.awwwards.com/websites/sites_of_the_year/	1	200	Sites Of The Year - Awwwards
+https://www.awwwards.com/honors/winners	1	200	Honors - Awwwards
+https://www.awwwards.com/winner-list/	1	200	Most Awarded Profiles - Awwwards
+https://www.awwwards.com/jury/2025/	1	200	Jury Awwwards 2025
+https://www.awwwards.com/websites/portfolio/	1	200	Best Portfolio Websites | Web Design Inspiration
+https://www.awwwards.com/awwwards/collections/free-fonts/	1	200	Free Fonts - Awwwards
+https://www.awwwards.com/websites/animation/	1	200	Best Animation Websites | Web Design Inspiration
+https://www.awwwards.com/websites/scrolling/	1	200	Best Scroll Websites | Web Design Inspiration
+https://www.awwwards.com/websites/single-page/	1	200	Best Single Page Websites | Web Design Inspiration
+https://www.awwwards.com/websites/ui-design/	1	200	Best UX/UI Design Inspiration Sites
+https://www.awwwards.com/websites/e-commerce/	1	200	E-commerce Websites Examples
+https://www.awwwards.com/websites/architecture/	1	200	Best Architectural Design Websites
+https://www.awwwards.com/websites/photography/	1	200	Best Photography websites | Web Design Inspiration
+https://www.awwwards.com/websites/hotel-restaurant/	1	200	Hotel & Restaurant Design websites
+https://www.awwwards.com/websites/design-agencies/	1	200	Best Web Agencies Websites
+https://www.awwwards.com/websites/business-corporate/	1	200	Business / Corporate Websites | Best Web Design
+https://www.awwwards.com/websites/fashion/	1	200	Best Fashion websites | Web Design Inspiration
+https://www.awwwards.com/websites/mobile-apps/	1	200	Mobile & Apps | Web Design Inspiration
+https://www.awwwards.com/websites/interaction-design/	1	200	Best Interaction Design websites | Web Design Inspiration
+https://www.awwwards.com/websites/illustration/	1	200	Best Illustration websites | Web Design Inspiration
+https://www.awwwards.com/websites/header-design/	1	200	Best Header Designs in Websites | Web Design Inspiration
+https://www.awwwards.com/awwwards/collections/css-js-animations/	1	200	CSS & JS Animations - Awwwards
+https://www.awwwards.com/websites/wordpress/	1	200	Best Wordpress websites | Web Design Inspiration
+https://www.awwwards.com/websites/shopify/	1	200	Best Shopify websites | Web Design Inspiration
+https://www.awwwards.com/websites/webgl/	1	200	Best WebGL Websites | Web Design Inspiration
+https://www.awwwards.com/websites/react/	1	200	Best React﻿ Websites | Web Design Inspiration
+https://www.awwwards.com/websites/3d/	1	200	Best 3D websites | Web Design Inspiration
+https://www.awwwards.com/websites/figma/	1	200	Best Figma websites | Web Design Inspiration
+https://www.awwwards.com/websites/gsap-animation/	1	200	Best GSAP Animation Websites | Web Design Inspiration
+https://www.awwwards.com/websites/framer-motion/	1	200	Awwwards Nominees
+https://www.awwwards.com/websites/webflow/	1	200	Best Webflow Websites | Web Design Inspiration
+https://www.awwwards.com/collections/	1	200	Collections - Inspirational Resources For Web Designers & Developers
+https://www.awwwards.com/blog/	1	200	Awwwards Blog - For Web Designers and Developers
+https://www.awwwards.com/directory/	1	200	Awwwards Directory
+https://www.awwwards.com/academy/	1	200	Awwwards Academy - Online Web Design Courses, UX, UI, and Programming
+https://www.awwwards.com/jobs/	1	200	Jobs for Web Designers and Developers
+https://www.awwwards.com/market/	1	200	Market - Awwwards
+https://www.awwwards.com/pro	1	200	Awwwards
+https://www.awwwards.com/submit/	1	200	Submit your website - Awwwards
+https://www.awwwards.com/sites/glyphic-biotechnologies	1	200	Glyphic Biotechnologies - Awwwards SOTD
+https://www.awwwards.com/obys/	1	200	Obys Agency - Awwwards
+https://www.awwwards.com/sites/readymag-woty-2025-shortlist	1	200	Readymag WOTY 2025 Shortlist - Awwwards Nominee
+https://www.awwwards.com/readymag/	1	200	Readymag - Awwwards
+https://www.awwwards.com/sites/citix	1	200	Citix - Awwwards Nominee

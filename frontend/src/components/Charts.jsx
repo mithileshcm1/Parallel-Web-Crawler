@@ -1,4 +1,7 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ScatterChart, Scatter, PieChart, Pie, Cell } from 'recharts';
+import {
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  ResponsiveContainer, ScatterChart, Scatter, PieChart, Pie, Cell
+} from 'recharts';
 
 // SEO Score Distribution
 export const SeoScoreChart = ({ results }) => {
@@ -10,7 +13,7 @@ export const SeoScoreChart = ({ results }) => {
   };
 
   results?.forEach(page => {
-    const score = page.seo_score || 0;
+    const score = Number(page.seo_score) || 0;
     if (score >= 80) scoreRanges['Excellent (80-100)']++;
     else if (score >= 60) scoreRanges['Good (60-79)']++;
     else if (score >= 40) scoreRanges['Fair (40-59)']++;
@@ -45,7 +48,7 @@ export const HealthScoreChart = ({ results }) => {
   };
 
   results?.forEach(page => {
-    const score = page.health_score || 0;
+    const score = Number(page.health_score) || 0;
     if (score >= 80) scoreRanges['Excellent (80-100)']++;
     else if (score >= 70) scoreRanges['Good (70-79)']++;
     else if (score >= 60) scoreRanges['Fair (60-69)']++;
@@ -70,13 +73,15 @@ export const HealthScoreChart = ({ results }) => {
   );
 };
 
-// Response Time vs Word Count
+// Response Time vs Word Count - UPDATED WITH SORTING
 export const ResponseTimeScatter = ({ results }) => {
-  const data = results?.map(page => ({
-    wordCount: page.word_count || 0,
-    responseTime: page.response_time || 0,
-    url: page.url
-  })) || [];
+  const data = (results || [])
+    .map(p => ({
+      wordCount: Number(p.word_count) || 0,
+      responseTime: Number(p.response_time) || 0,
+      url: p.url
+    }))
+    .sort((a, b) => a.wordCount - b.wordCount); // sort X ascending
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6">
@@ -94,13 +99,15 @@ export const ResponseTimeScatter = ({ results }) => {
   );
 };
 
-// Images vs Response Time
+// Images vs Response Time - UPDATED WITH SORTING
 export const ImagesResponseScatter = ({ results }) => {
-  const data = results?.map(page => ({
-    images: page.images || 0,
-    responseTime: page.response_time || 0,
-    url: page.url
-  })) || [];
+  const data = (results || [])
+    .map(p => ({
+      images: Number(p.images) || 0,
+      responseTime: Number(p.response_time) || 0,
+      url: p.url
+    }))
+    .sort((a, b) => a.images - b.images); // sort X ascending
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6">
@@ -125,15 +132,15 @@ export const WordCountHistogram = ({ results }) => {
     '100-300': 0,
     '300-500': 0,
     '500-1000': 0,
-    '1000+': 0
+    '1000+' : 0
   };
 
   results?.forEach(page => {
-    const count = page.word_count || 0;
-    if (count < 100) ranges['0-100']++;
-    else if (count < 300) ranges['100-300']++;
-    else if (count < 500) ranges['300-500']++;
-    else if (count < 1000) ranges['500-1000']++;
+    const c = Number(page.word_count) || 0;
+    if (c < 100) ranges['0-100']++;
+    else if (c < 300) ranges['100-300']++;
+    else if (c < 500) ranges['300-500']++;
+    else if (c < 1000) ranges['500-1000']++;
     else ranges['1000+']++;
   });
 
@@ -157,27 +164,18 @@ export const WordCountHistogram = ({ results }) => {
 
 // H1/H2 Count Chart
 export const HeadingChart = ({ results }) => {
-  const headingData = {
-    'No H1': 0,
-    '1 H1': 0,
-    'Multiple H1': 0,
-    'Has H2': 0,
-    'No H2': 0
-  };
+  const bucket = { 'No H1': 0, '1 H1': 0, 'Multiple H1': 0, 'Has H2': 0, 'No H2': 0 };
 
-  results?.forEach(page => {
-    const h1 = page.h1_tags || 0;
-    const h2 = page.h2_tags || 0;
-
-    if (h1 === 0) headingData['No H1']++;
-    else if (h1 === 1) headingData['1 H1']++;
-    else headingData['Multiple H1']++;
-
-    if (h2 > 0) headingData['Has H2']++;
-    else headingData['No H2']++;
+  results?.forEach(p => {
+    const h1 = Number(p.h1_tags) || 0;
+    const h2 = Number(p.h2_tags) || 0;
+    if (h1 === 0) bucket['No H1']++;
+    else if (h1 === 1) bucket['1 H1']++;
+    else bucket['Multiple H1']++;
+    if (h2 > 0) bucket['Has H2']++; else bucket['No H2']++;
   });
 
-  const data = Object.entries(headingData).map(([name, value]) => ({ name, value }));
+  const data = Object.entries(bucket).map(([name, value]) => ({ name, value }));
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6">
@@ -197,14 +195,14 @@ export const HeadingChart = ({ results }) => {
 
 // Media Usage Chart
 export const MediaUsageChart = ({ results }) => {
-  const totalImages = results?.reduce((sum, page) => sum + (page.images || 0), 0) || 0;
-  const totalVideos = results?.reduce((sum, page) => sum + (page.videos || 0), 0) || 0;
-  const totalAudio = results?.reduce((sum, page) => sum + (page.audio || 0), 0) || 0;
+  const totalImages = results?.reduce((s, p) => s + (Number(p.images) || 0), 0) || 0;
+  const totalVideos = results?.reduce((s, p) => s + (Number(p.videos) || 0), 0) || 0;
+  const totalAudio  = results?.reduce((s, p) => s + (Number(p.audio)  || 0), 0) || 0;
 
   const data = [
     { name: 'Images', value: totalImages },
     { name: 'Videos', value: totalVideos },
-    { name: 'Audio', value: totalAudio }
+    { name: 'Audio',  value: totalAudio }
   ];
 
   const COLORS = ['#3b82f6', '#8b5cf6', '#ec4899'];
@@ -221,12 +219,9 @@ export const MediaUsageChart = ({ results }) => {
             labelLine={false}
             label={({ name, value }) => `${name}: ${value}`}
             outerRadius={100}
-            fill="#8884d8"
             dataKey="value"
           >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-            ))}
+            {data.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
           </Pie>
           <Tooltip />
         </PieChart>
@@ -237,22 +232,17 @@ export const MediaUsageChart = ({ results }) => {
 
 // Performance Distribution
 export const PerformanceChart = ({ results }) => {
-  const perfRanges = {
-    'Fast (<1s)': 0,
-    'Good (1-2s)': 0,
-    'Slow (2-3s)': 0,
-    'Very Slow (>3s)': 0
-  };
+  const perf = { 'Fast (<1s)': 0, 'Good (1-2s)': 0, 'Slow (2-3s)': 0, 'Very Slow (>3s)': 0 };
 
-  results?.forEach(page => {
-    const time = page.response_time || 0;
-    if (time < 1) perfRanges['Fast (<1s)']++;
-    else if (time < 2) perfRanges['Good (1-2s)']++;
-    else if (time < 3) perfRanges['Slow (2-3s)']++;
-    else perfRanges['Very Slow (>3s)']++;
+  results?.forEach(p => {
+    const t = Number(p.response_time) || 0;
+    if (t < 1) perf['Fast (<1s)']++;
+    else if (t < 2) perf['Good (1-2s)']++;
+    else if (t < 3) perf['Slow (2-3s)']++;
+    else perf['Very Slow (>3s)']++;
   });
 
-  const data = Object.entries(perfRanges).map(([name, value]) => ({ name, value }));
+  const data = Object.entries(perf).map(([name, value]) => ({ name, value }));
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6">

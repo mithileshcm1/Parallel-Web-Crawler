@@ -8,49 +8,48 @@ Broken Links Found: 0
 ----------------------------------------------------------------------
 1. CONTENT QUALITY ANALYSIS
 ----------------------------------------------------------------------
-Thin Content Pages (< 100 words): 1 (2.0%)
-Missing Meta Descriptions: 0 (0.0%)
-Titles Too Short (< 30 chars): 3 (6.0%)
-Titles Too Long (> 60 chars): 29 (58.0%)
+Thin Content Pages (< 100 words): 0 (0.0%)
+Missing Meta Descriptions: 3 (6.0%)
+Titles Too Short (< 30 chars): 16 (32.0%)
+Titles Too Long (> 60 chars): 2 (4.0%)
 
 ----------------------------------------------------------------------
 2. SEO HEALTH ANALYSIS
 ----------------------------------------------------------------------
-Pages Missing H1 Tag: 3 (6.0%)
-Pages with Multiple H1 Tags: 3 (6.0%)
-Average SEO Score: 89.5/100
+Pages Missing H1 Tag: 8 (16.0%)
+Pages with Multiple H1 Tags: 1 (2.0%)
+Average SEO Score: 81.9/100
 
 ✓ Excellent SEO structure overall!
-⚠️  6% of pages are missing H1 tags.
-⚠️  3 pages have multiple H1 tags (bad SEO practice).
+⚠️  16% of pages are missing H1 tags.
+⚠️  1 pages have multiple H1 tags (bad SEO practice).
 
 ----------------------------------------------------------------------
 3. MEDIA ANALYSIS
 ----------------------------------------------------------------------
-Total Images: 11134 (avg 222.7 per page)
-Total Videos: 19
+Total Images: 3264 (avg 65.3 per page)
+Total Videos: 56
 Total Audio Files: 0
 
 ----------------------------------------------------------------------
 4. PERFORMANCE ANALYSIS
 ----------------------------------------------------------------------
-Average Response Time: 2.57s
-Slow Pages (> 2s): 37 (74.0%)
+Average Response Time: 0.91s
+Slow Pages (> 2s): 3 (6.0%)
 
-⚠️  Average response time is slow - consider optimization.
+✓ Excellent response times!
 
 ======================================================================
 5. OVERALL WEBSITE HEALTH SCORE
 ======================================================================
-Health Score: 84.6/100
+Health Score: 91.2/100
 
 ✓ EXCELLENT - Website is in great health!
 
 ======================================================================
 RECOMMENDATIONS
 ======================================================================
-• Add H1 tags to 3 pages
-• Fix 3 pages with multiple H1 tags
-• Optimize 37 slow-loading pages
+• Add H1 tags to 8 pages
+• Fix 1 pages with multiple H1 tags
 
 ======================================================================
