@@ -1,51 +1,51 @@
 URL	Depth	Status	Title
-https://www.awwwards.com	0	200	Awwwards - Website Awards - Best Web Design Trends
-https://www.awwwards.com/	1	200	Awwwards - Website Awards - Best Web Design Trends
-https://www.awwwards.com/websites/	1	200	Winning websites. Web Design Inspiration - Awwwards
-https://www.awwwards.com/websites/nominees/	1	200	Nominees - Awwwards
-https://www.awwwards.com/websites/sites_of_the_day/	1	200	Sites Of The Day - Awwwards
-https://www.awwwards.com/websites/sites_of_the_month/	1	200	Sites Of The Month - Awwwards
-https://www.awwwards.com/websites/sites_of_the_year/	1	200	Sites Of The Year - Awwwards
-https://www.awwwards.com/honors/winners	1	200	Honors - Awwwards
-https://www.awwwards.com/winner-list/	1	200	Most Awarded Profiles - Awwwards
-https://www.awwwards.com/jury/2025/	1	200	Jury Awwwards 2025
-https://www.awwwards.com/websites/portfolio/	1	200	Best Portfolio Websites | Web Design Inspiration
-https://www.awwwards.com/awwwards/collections/free-fonts/	1	200	Free Fonts - Awwwards
-https://www.awwwards.com/websites/animation/	1	200	Best Animation Websites | Web Design Inspiration
-https://www.awwwards.com/websites/scrolling/	1	200	Best Scroll Websites | Web Design Inspiration
-https://www.awwwards.com/websites/single-page/	1	200	Best Single Page Websites | Web Design Inspiration
-https://www.awwwards.com/websites/ui-design/	1	200	Best UX/UI Design Inspiration Sites
-https://www.awwwards.com/websites/e-commerce/	1	200	E-commerce Websites Examples
-https://www.awwwards.com/websites/architecture/	1	200	Best Architectural Design Websites
-https://www.awwwards.com/websites/photography/	1	200	Best Photography websites | Web Design Inspiration
-https://www.awwwards.com/websites/hotel-restaurant/	1	200	Hotel & Restaurant Design websites
-https://www.awwwards.com/websites/design-agencies/	1	200	Best Web Agencies Websites
-https://www.awwwards.com/websites/business-corporate/	1	200	Business / Corporate Websites | Best Web Design
-https://www.awwwards.com/websites/fashion/	1	200	Best Fashion websites | Web Design Inspiration
-https://www.awwwards.com/websites/mobile-apps/	1	200	Mobile & Apps | Web Design Inspiration
-https://www.awwwards.com/websites/interaction-design/	1	200	Best Interaction Design websites | Web Design Inspiration
-https://www.awwwards.com/websites/illustration/	1	200	Best Illustration websites | Web Design Inspiration
-https://www.awwwards.com/websites/header-design/	1	200	Best Header Designs in Websites | Web Design Inspiration
-https://www.awwwards.com/awwwards/collections/css-js-animations/	1	200	CSS & JS Animations - Awwwards
-https://www.awwwards.com/websites/wordpress/	1	200	Best Wordpress websites | Web Design Inspiration
-https://www.awwwards.com/websites/shopify/	1	200	Best Shopify websites | Web Design Inspiration
-https://www.awwwards.com/websites/webgl/	1	200	Best WebGL Websites | Web Design Inspiration
-https://www.awwwards.com/websites/react/	1	200	Best React﻿ Websites | Web Design Inspiration
-https://www.awwwards.com/websites/3d/	1	200	Best 3D websites | Web Design Inspiration
-https://www.awwwards.com/websites/figma/	1	200	Best Figma websites | Web Design Inspiration
-https://www.awwwards.com/websites/gsap-animation/	1	200	Best GSAP Animation Websites | Web Design Inspiration
-https://www.awwwards.com/websites/framer-motion/	1	200	Awwwards Nominees
-https://www.awwwards.com/websites/webflow/	1	200	Best Webflow Websites | Web Design Inspiration
-https://www.awwwards.com/collections/	1	200	Collections - Inspirational Resources For Web Designers & Developers
-https://www.awwwards.com/blog/	1	200	Awwwards Blog - For Web Designers and Developers
-https://www.awwwards.com/directory/	1	200	Awwwards Directory
-https://www.awwwards.com/academy/	1	200	Awwwards Academy - Online Web Design Courses, UX, UI, and Programming
-https://www.awwwards.com/jobs/	1	200	Jobs for Web Designers and Developers
-https://www.awwwards.com/market/	1	200	Market - Awwwards
-https://www.awwwards.com/pro	1	200	Awwwards
-https://www.awwwards.com/submit/	1	200	Submit your website - Awwwards
-https://www.awwwards.com/sites/glyphic-biotechnologies	1	200	Glyphic Biotechnologies - Awwwards SOTD
-https://www.awwwards.com/obys/	1	200	Obys Agency - Awwwards
-https://www.awwwards.com/sites/readymag-woty-2025-shortlist	1	200	Readymag WOTY 2025 Shortlist - Awwwards Nominee
-https://www.awwwards.com/readymag/	1	200	Readymag - Awwwards
-https://www.awwwards.com/sites/citix	1	200	Citix - Awwwards Nominee
+https://quotes.toscrape.com	0	200	Quotes to Scrape
+https://quotes.toscrape.com/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/login	1	200	Quotes to Scrape
+https://quotes.toscrape.com/author/Albert-Einstein	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/change/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/deep-thoughts/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/thinking/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/world/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/author/J-K-Rowling	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/abilities/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/choices/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/inspirational/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/life/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/live/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/miracle/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/miracles/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/author/Jane-Austen	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/aliteracy/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/books/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/classic/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/humor/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/author/Marilyn-Monroe	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/be-yourself/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/adulthood/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/success/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/value/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/author/Andre-Gide	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/love/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/author/Thomas-A-Edison	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/edison/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/failure/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/paraphrased/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/author/Eleanor-Roosevelt	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/misattributed-eleanor-roosevelt/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/author/Steve-Martin	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/obvious/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/simile/page/1/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/page/2/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/love/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/inspirational/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/life/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/humor/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/books/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/reading/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/friendship/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/friends/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/truth/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/simile/	1	200	Quotes to Scrape
+https://quotes.toscrape.com/author/Terry-Pratchett	2	200	Quotes to Scrape
+https://quotes.toscrape.com/tag/open-mind/page/1/	2	200	Quotes to Scrape

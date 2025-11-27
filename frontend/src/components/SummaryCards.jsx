@@ -1,4 +1,4 @@
-import { FaGlobe, FaChartLine, FaHeartbeat, FaFileAlt, FaExclamationTriangle, FaClock, FaLink, FaStopwatch } from 'react-icons/fa';
+import { FaGlobe, FaChartLine, FaHeartbeat, FaFileAlt, FaExclamationTriangle, FaClock, FaStopwatch } from 'react-icons/fa';
 
 const SummaryCards = ({ summary }) => {
   const cards = [
@@ -65,16 +65,6 @@ const SummaryCards = ({ summary }) => {
       textColor: 'text-teal-600',
       iconBg: 'bg-teal-100',
       subtitle: summary?.mode === 'sequential' ? '🔄 Sequential' : '⚡ Parallel'
-    },
-    {
-      title: 'Most Linked Page',
-      value: summary?.most_linked_page ? summary.most_linked_page.substring(0, 30) + '...' : 'N/A',
-      icon: <FaLink />,
-      color: 'pink',
-      bgColor: 'bg-pink-50',
-      textColor: 'text-pink-600',
-      iconBg: 'bg-pink-100',
-      fullValue: summary?.most_linked_page || 'N/A'
     }
   ];
 

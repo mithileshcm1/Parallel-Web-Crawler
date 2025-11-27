@@ -108,26 +108,29 @@ const CrawlInputPage = () => {
                 />
               </div>
 
-              {/* Threads Slider */}
+              {/* Threads Selection - Replace slider section */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Number of Threads: <span className="text-indigo-600 font-bold">{formData.threads}</span>
+                <label className="block text-sm font-semibold text-gray-700 mb-3">
+                  Number of Threads
                   {formData.sequential_mode && <span className="text-orange-600 ml-2">(Disabled in Sequential Mode)</span>}
                 </label>
-                <input
-                  type="range"
-                  name="threads"
-                  min="1"
-                  max="32"
-                  value={formData.threads}
-                  onChange={handleInputChange}
-                  disabled={formData.sequential_mode}
-                  className={`w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-indigo-600 ${formData.sequential_mode ? 'opacity-50 cursor-not-allowed' : ''}`}
-                />
-                <div className="flex justify-between text-xs text-gray-500 mt-1">
-                  <span>1</span>
-                  <span>16</span>
-                  <span>32</span>
+                <div className="flex gap-3">
+                  {[8, 16, 32].map((threadCount) => (
+                    <button
+                      key={threadCount}
+                      type="button"
+                      onClick={() => setFormData(prev => ({ ...prev, threads: threadCount }))
+                      }
+                      disabled={formData.sequential_mode}
+                      className={`flex-1 py-3 px-4 rounded-lg font-semibold transition transform hover:scale-105 ${
+                        formData.threads === threadCount
+                          ? 'bg-indigo-600 text-white shadow-lg'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      } ${formData.sequential_mode ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+                    >
+                      {threadCount} Threads
+                    </button>
+                  ))}
                 </div>
               </div>
 
