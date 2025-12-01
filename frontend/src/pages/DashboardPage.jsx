@@ -10,9 +10,7 @@ import {
   SeoScoreChart,
   HealthScoreChart,
   ResponseTimeScatter,
-  ImagesResponseScatter,
   WordCountHistogram,
-  HeadingChart,
   MediaUsageChart,
   PerformanceChart
 } from '../components/Charts';
@@ -119,9 +117,7 @@ const DashboardPage = () => {
             <SeoScoreChart results={results} />
             <HealthScoreChart results={results} />
             <ResponseTimeScatter results={results} />
-            <ImagesResponseScatter results={results} />
             <WordCountHistogram results={results} />
-            <HeadingChart results={results} />
             <MediaUsageChart results={results} />
             <PerformanceChart results={results} />
           </div>
